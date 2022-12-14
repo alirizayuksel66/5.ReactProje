@@ -1,11 +1,28 @@
-export default function Header({ theme, setTheme, language, setLanguage }) {
+import SwitchLanguage from "./SwitchLanguage";
+import SwitchTheme from "./SwitchTheme";
+import { useAuth } from "./context";
+
+export default function Header() {
+
+    const { user, setUser } = useAuth()
+
+    const login = () => {
+        setUser({
+            Fullname: 'Ali Rıza Yüksel',
+            ID: 1
+        })
+    }
+
+    const logout = () => {
+        setUser(false)
+    }
+
     return (
         <header>
             Header <br></br>
-            Mevcut Tema = {theme} <br></br>
-            <button onClick={() => setTheme(theme == 'light' ? 'dark' : 'light')}>Temayı Değiştir</button><br></br>
-            Mevcut Dil = {language} <br></br>
-            <button onClick={() => setLanguage(language == 'TR' ? 'EN' : 'TR')}>Temayı Değiştir</button>
+            {user && <button onClick={logout}>Çıkış Yap</button> || <button onClick={login}>Giriş Yap</button>} <br></br>
+            <SwitchTheme></SwitchTheme><br></br>
+            <SwitchLanguage></SwitchLanguage>
         </header>
     )
 }

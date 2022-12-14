@@ -1,4 +1,9 @@
-export default function SwitchTheme({ theme, setTheme }) {
+import { useSite } from "./context";
+
+export default function SwitchTheme() {
+
+    const { theme, setTheme } = useSite()
+
     return (
         <>
             Mevcut Tema = {theme} <br></br>

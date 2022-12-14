@@ -1,11 +1,12 @@
-export default function Footer({ theme, setTheme, language, setLanguage }) {
+import SwitchTheme from "./SwitchTheme";
+import SwitchLanguage from "./SwitchLanguage";
+
+export default function Footer() {
     return (
         <footer>
             Footer <br></br>
-            Mevcut Tema = {theme} <br></br>
-            <button onClick={() => setTheme(theme == 'light' ? 'dark' : 'light')}>Temayı Değiştir</button><br></br>
-            Mevcut Dil = {language} <br></br>
-            <button onClick={() => setLanguage(language == 'TR' ? 'EN' : 'TR')}>Temayı Değiştir</button>
+            <SwitchTheme></SwitchTheme><br></br>
+            <SwitchLanguage></SwitchLanguage>
         </footer>
     )
 }
